@@ -76,7 +76,7 @@ sql/chts-2010.zip      #   zipped SQL file that will create the CHTS database in
    
 3. On windows, say yes to the use of `stackbuilder` (see below)
    
-### Install PostGIS (optional)
+### Install PostGIS (optional, but recommended)
 
 PostGIS provides GIS functionality for postgresql databases.
 Installation instructions vary depending on the operating system.  
@@ -86,6 +86,21 @@ Installation instructions vary depending on the operating system.
     the "select the applications you would like to install", open
     `Categories=>Spatial Extensions` and select the PostGIS bundle that
     is appropriate for your platform (e.g., 32 vs 64bit)
+
+### Load the CHTS-2010 data into postgresql
+
+There are detailed instructions about how to do this from scratch in the
+`Conversion Steps` section below.
+
+However, if you want a quick start, you can obtain the
+`chts-2010-data.zip` file and load the data into postgresql using the
+batch file contained in that zip.  `chts-2010-data.zip` is *not*
+included in this distribution because it contains sensitive data and
+this code is stored in a public repository.
+
+Once you obtain the zip file, extract it, and open the README.md file in
+a text editor to get the instructions for installing the data.
+
    
 ### Install R
 
@@ -137,12 +152,10 @@ analysis project using `Rstudio` and `git`.
        This will create a project in your home directory that contains
        the analysis source.
 
-    5. Open up the Rproject file under the R/ directory.
-   
-### Load the chts-2010 data into postgresql
-
-The steps for this will depend on your operating system.  However, the
-procedure should be similar.
+    5. In the files pane, go to the `present/` subdirectory and open up `present.Rmd`
+    6. Click on File=>Knit.  This should obtain an html window with the
+       output from the present.Rmd file.  If that is successful, you are on your way
+    
 
 
 
