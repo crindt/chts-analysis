@@ -22,7 +22,7 @@ tables on the 2010 CHTS data.
 
 # Change Log
 
-```{.changelog include="../../CHANGELOG"}
+```{.changelog include="../CHANGELOG"}
 ```
 
 # Target Tools
@@ -32,6 +32,13 @@ and actively maintained free and open source software.
 
 * Relational datastore: [PostgresSQL](http://www.postgresql.org/)
 * Statistical package: [R](http://www.r-project.org)
+* Source code management: [git](http://gitscm.org)
+
+Optional tools include:
+
+* Statistical front end: [Rstudio](http://www.rstudio.com/)
+
+# Setting up your system
 
 # Conversion steps
 

@@ -33,7 +33,7 @@ tables on the 2010 CHTS data.
 
 # Change Log
 
-```{.changelog include="../../CHANGELOG"}
+```{.changelog include="../CHANGELOG"}
 ```
 
 # Target Tools
