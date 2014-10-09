@@ -1,0 +1,23 @@
+#!/usr/bin/Rscript
+
+args <- commandArgs(TRUE)
+library(knitr)
+library(markdown)
+if ( length(args) > 0) {
+    f <- args[1]
+    message("Knitting...",f)
+    knit(paste(f,'.Rmd',sep=""),quiet=TRUE)
+    cmd <- paste("sed 's/%%%DATE%%%/",Sys.Date(),"/g' ",f,".md | sed 's/%%%TIME%%%/",Sys.time(),"/g' | PATH=.:$PATH pandoc -F includes -t html5 --template ./custom.revealjs --standalone --section-divs --variable theme='beige'  --variable css=reveal.js/css/theme/beige.css --variable css='custom.css' --variable transition='linear' | ./_filter.pl > ",f,".html",sep="")
+    message("Generating html...")
+    message("Generating html...",cmd)
+    system(cmd)
+
+    cmd <- paste("sed 's/%%%DATE%%%/",Sys.Date(),"/g' ",f,".md | sed 's/%%%TIME%%%/",Sys.time(),"/g' | PATH=.:$PATH pandoc -F includes -V geometry:margin=1in -o ",f,".pdf",sep="")
+    message("Generating pdf...")
+    message("Generating pdf...",cmd)
+    system(cmd)
+
+} else {
+    message("You need to specify the file to weave")
+}
+

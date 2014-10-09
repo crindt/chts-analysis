@@ -1,0 +1,141 @@
+% 2010 California Household Travel Survey
+% Linked Trip Summaries
+% %%%TIME%%%
+
+```{r setup,eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE}
+# Preload needed code chunks
+library(knitr)
+sub=read_chunk("../R/load-linked-trips.R", labels="llt-sub") 
+sub=read_chunk("../R/unweighted-weekday-trips.R", 
+               labels="unweighted-wd-trips-sub")
+sub=read_chunk("../R/weighted-wd-trips-type.R",
+               labels="weighted-wd-trips-sub")
+sub=read_chunk("../R/weighted-we-trips-type.R",
+               labels="weighted-we-trips-sub")
+sub=read_chunk("../R/weighted-wd-trips-by-region.R",
+               labels="weighted-wd-trips-by-region-sub")
+```
+
+# Introduction
+
+These slides present a summary of the method being used to generate linked trip
+tables on the 2010 CHTS data.
+
+* A [pdf version](present.pdf) of this document
+
+* The linked trip table is available as a compressed SQL file upon request.
+
+* The code for this project is maintained as a git repository.  Access is
+  available upon request.
+
+* PLEASE NOTE: This is a working document very much still a draft. ***It was
+  last updated on %%%TIME%%%***
+
+# Change Log
+
+```{.changelog include="../../CHANGELOG"}
+```
+
+# Target Tools
+
+The following tools have been chosen as the target tools because they are mature
+and actively maintained free and open source software.
+
+* Relational datastore: [PostgresSQL](http://www.postgresql.org/)
+* Statistical package: [R](http://www.r-project.org)
+* Source code management: [git](http://gitscm.org)
+
+Optional tools include:
+
+* Statistical front end: [Rstudio](http://www.rstudio.com/)
+
+# Setting up your system
+
+# Conversion steps
+
+## Platform
+
+The following conversion was performed on a mid-level workstation running the
+13.04 Ubuntu Linux distribution.  Only open source tools were required.  (Use
+down arrow to see details)
+
+## Convert raw MS-Access (.mdb) databases for use PostgreSQL
+
+The following shell script uses the `mdb-tools` package and standard unix tools
+to convert complete set of tables in the Access database to tab separated value
+files, which are then loaded into `PostgreSQL`.
+
+~~~~{.bash include="../sql/export-to-db.sh"}
+~~~~
+
+## Generate static linked trip table consistent with 2001 CHTS datasets
+
+The following SQL command is used to generate `tbllinkedtrip`, containing the
+linked trip tables for use in `R`
+
+~~~~{.sql include="../sql/clean.sql"}
+~~~~
+
+Function definitions...
+
+~~~~{.sql include="../sql/helper-functions.sql"}
+~~~~
+
+
+
+# Importing data from PostgreSQL to R
+```{r llt-sub,eval=TRUE,echo=TRUE,warning=FALSE,message=FALSE,fig.keep='none',cache=TRUE}
+```
+
+# Trips by Type
+
+## A note on trip types
+
+For the purposes of this analysis, each linked trip origin and destination was
+classified using the following `SQL` functions.  There is room for discussion
+here regarding these definitions.  Arrow down to see trip type distributions.
+
+``` {.sql include="../sql/trip-type-functions.sql"}
+```
+
+## **Unweighted** weekday trips by type
+
+```{r unweighted-wd-trips-sub,fig.cap="",eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE,fig.width=10,fig.height=5}
+```
+```{r unweighted-wd-trips-sub,fig.cap="",eval=FALSE,echo=TRUE, warning=TRUE, message=TRUE}
+```
+
+## Weighted weekday trips by type
+
+```{r weighted-wd-trips-sub,fig.cap="",eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE,fig.width=10,fig.height=5}
+```
+```{r weighted-wd-trips-sub,fig.cap="",eval=FALSE,echo=TRUE, warning=TRUE, message=TRUE}
+```
+
+
+## Weighted weekend person trips by type
+
+```{r weighted-we-trips-sub,fig.cap="",eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE,fig.width=10,fig.height=5}
+```
+```{r weighted-wd-trips-sub,fig.cap="",eval=FALSE,echo=TRUE, warning=TRUE, message=TRUE}
+```
+
+# Weighted weekday trips by region
+
+```{r weighted-wd-trips-by-region-sub,fig.cap="",eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,fig.width=10,fig.height=5,results="asis"}
+```
+```{r weighted-wd-trips-by-region-sub,fig.cap="",eval=FALSE,echo=TRUE, warning=TRUE, message=TRUE}
+```
+
+# Data cleaning
+
+
+
+# More to come...
+
+This is a living document that we are actively improving.  Check back often...
+
+
+
+
+

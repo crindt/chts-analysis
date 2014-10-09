@@ -1,0 +1,10 @@
+base
+DBI
+Formula
+Hmisc
+knitr
+lattice
+markdown
+rgl
+RPostgreSQL
+survival

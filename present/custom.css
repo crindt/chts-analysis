@@ -1,0 +1,84 @@
+body {
+    overflow-y: scroll;
+}
+.col2 {
+    -webkit-columns: 200px 2;
+}
+.col3 {
+    -webkit-column-count:3;
+}
+.col2 ul, .col3 ul {
+    width: 100%;
+}
+.col2 ul > li {
+    min-width: 100%;
+}
+
+ul > li > ul > li:first-child {
+    padding-top:0.25em;
+}
+ul > li > ul > li:last-child {
+    padding-bottom:0.5em;
+}
+
+ul > li:not(:first-child) {
+    padding-top: 0.25em;
+}
+
+/*
+*/
+
+/*
+.reveal.linear {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #333333; }
+/*
+/*
+.reveal h1 { font-size: 3.77em; }
+.reveal h2 { font-size: 2.11em;	}
+.reveal h3 { font-size: 1.55em;	}
+.reveal h4 { font-size: 1em;	}
+*/
+.reveal.linear h1 { font-size: 1.885em; }
+.reveal.linear h2 { font-size: 1.055em;	}
+.reveal.linear h3 { font-size: 0.775em;	}
+.reveal.linear h4 { font-size: 0.5em;	}
+.reveal.linear {font-size: 200%; }
+
+table {
+    border-collapse: collapse;
+    width:100%;
+}
+
+.reveal table th, .reveal table td {
+    padding:  0.5em 1em 0.5em 1em;
+}
+
+.reveal table th {
+    font-weight: bold;
+}
+
+.reveal table th, .reveal table td {
+    border-left: 1px solid rgba(0,0,0,0.05)
+    border-right: 1px solid rgba(0,0,0,0.05)
+}
+
+table thead tr:first-child th {
+    border-top: 1px solid;
+}
+
+table thead tr:last-child th {
+    border-bottom: 1px solid #000;
+}
+
+table tbody tr:last-child td {
+    border-bottom: 1px solid #000;
+}
+
+/* Make table text smaller*/
+#weighted-weekday-trips-by-region table {
+    font-size: 12pt;
+}

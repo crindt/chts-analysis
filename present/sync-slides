@@ -1,0 +1,1 @@
+rsync -avz --exclude cache/ ../slides crindt@parsons.its.uci.edu:its/chts/MainDataset
