@@ -5,3 +5,4 @@ present_cache/
 present_files/
 figure/
 cache/
+packrat/lib*/

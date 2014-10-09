@@ -4,7 +4,7 @@ library(RPostgreSQL)
 
 # create an PostgreSQL instance and create one connection.
 drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname="chts-2010", user="postgres")
+con <- dbConnect(drv, dbname="chts-2010", user="postgres", port=5433)
 
 # query the linked trip table and put into a data frame
 rs <- dbSendQuery(con,

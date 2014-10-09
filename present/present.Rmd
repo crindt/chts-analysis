@@ -12,8 +12,9 @@ sub=read_chunk("../R/weighted-wd-trips-type.R",
                labels="weighted-wd-trips-sub")
 sub=read_chunk("../R/weighted-we-trips-type.R",
                labels="weighted-we-trips-sub")
-sub=read_chunk("../R/weighted-wd-trips-by-region.R",
-               labels="weighted-wd-trips-by-region-sub")
+# temporarily comment this as it is breaking in R 3.1
+#sub=read_chunk("../R/weighted-wd-trips-by-region.R",
+#               labels="weighted-wd-trips-by-region-sub")
 ```
 
 # Introduction
@@ -219,10 +220,14 @@ here regarding these definitions.  Arrow down to see trip type distributions.
 
 # Weighted weekday trips by region
 
+Temporarily disabled due to compatibility issues with R 3.1
+
+<!--
 ```{r weighted-wd-trips-by-region-sub,fig.cap="",eval=TRUE,echo=FALSE,warning=FALSE,message=FALSE,fig.width=10,fig.height=5,results="asis"}
 ```
 ```{r weighted-wd-trips-by-region-sub,fig.cap="",eval=FALSE,echo=TRUE, warning=TRUE, message=TRUE}
 ```
+-->
 
 # Data cleaning
 
