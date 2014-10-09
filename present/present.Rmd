@@ -1,4 +1,4 @@
-<% 2010 California Household Travel Survey
+% 2010 California Household Travel Survey
 % Linked Trip Summaries
 % %%%TIME%%%
 
@@ -127,13 +127,16 @@ analysis project using `Rstudio` and `git`.
     3. Select `Git`
     4. Enter the following:
 
-       Field                                 Value                               Comment
-       -----------                           ----------------------------------  --------------------------------------
-       Repository                            `https://www.ctmlabs.its.uci.edu`
-       Project Directory Name                `chts-analysis`                     You can make this whatever you want
-       Create Project as a subdirectory of   `~`                                 `~` is your default document directory
+       Field                                 Value                                    
+       -----------                           ----------------------------------       
+       Repository                            `https://github.com/crindt/chts-analysis`
+       Project Directory Name                `chts-analysis`                          
+       Create Project as a subdirectory of   `~`                                      
 
-    5. test
+       This will create a project in your home directory that contains
+       the analysis source.
+
+    5. Open up the Rproject file under the R/ directory.
    
 ### Load the chts-2010 data into postgresql
 
