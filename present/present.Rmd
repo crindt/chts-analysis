@@ -1,4 +1,4 @@
-% 2010 California Household Travel Survey
+<% 2010 California Household Travel Survey
 % Linked Trip Summaries
 % %%%TIME%%%
 
@@ -51,7 +51,101 @@ Optional tools include:
 
 # Setting up your system
 
+## Overview of files in this project
+
+This project is organized as follows
+
+```{.sh}
+present/               # documentation and reporting
+present/present.Rmd    #   This Rmarkdown file
+R/                     # R scripts, used by the documents in present
+sql/                   # SQL processing scripts
+sql/chts-2010.zip      #   zipped SQL file that will create the CHTS database in postgresql
+```
+
+## Getting up and running quickly
+
+### Install postgresql
+
+1. Download the latest version version of
+   [postgresql](http://www.postgresql.org/) for your operating system
+   
+2. Follow the installation instructions, which should include creating a
+   database user and password
+   
+3. On windows, say yes to the use of `stackbuilder` (see below)
+   
+### Install PostGIS (optional)
+
+PostGIS provides GIS functionality for postgresql databases.
+Installation instructions vary depending on the operating system.  
+
+    If you are using the windows installer, the `stackbuilder`
+    installation process will install PostGIS for you.  When you get to
+    the "select the applications you would like to install", open
+    `Categories=>Spatial Extensions` and select the PostGIS bundle that
+    is appropriate for your platform (e.g., 32 vs 64bit)
+   
+### Install R
+
+To install R, find the installation instructions for you operating
+system [here](http://www.r-project.org/).  There is a windows installer.
+You should be able to accept the default installation options.
+
+
+### Install Rstudio (optional, but recommended)
+
+[R studio](http://www.rstudio.com/) provides a helpful Integrated
+Development Environment (IDE) for R.
+
+### Install git (optional, but recommended)
+
+[git](http://gitscm.org) is a well known distributed version control
+system.  It is incredibly flexible and will allow you to maintain your
+projects without risking losing your prior work.  It is designed to
+allow users to share work efficiently.  
+
+If you are installing on Windows, the default installation options
+should work fine with Rstudio EXCEPT, you need to selection the option
+to use `git` from the windows command line.  Doing this makes `git`
+accessible to Rstudio, which integrates with git and wraps its
+complexity within a GUI.  There is a nice overview
+[here](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN?version=0.98.1062&mode=desktop_
+
+
+### Check out the chts-analysis repository
+
+This describes the process for getting a copy of the linked trip table
+analysis project using `Rstudio` and `git`.
+
+1. Start `Rstudio`
+
+2. Create a new project
+
+    1. File=>New Project
+    2. Select `Version Control`
+    3. Select `Git`
+    4. Enter the following:
+
+       Field                                 Value                               Comment
+       -----------                           ----------------------------------  --------------------------------------
+       Repository                            `https://www.ctmlabs.its.uci.edu`
+       Project Directory Name                `chts-analysis`                     You can make this whatever you want
+       Create Project as a subdirectory of   `~`                                 `~` is your default document directory
+
+    5. test
+   
+### Load the chts-2010 data into postgresql
+
+The steps for this will depend on your operating system.  However, the
+procedure should be similar.
+
+
+
+
 # Conversion steps
+
+
 
 ## Platform
 
